@@ -5,7 +5,7 @@ import axios from 'axios';
 import "./App.css";
 
 function LoginForm({touched, errors, values, isSubmitting, status} ){
-    const [users, setUsers] = useState([]);
+    const [users, setUsers] = useState([{name: "John S"}, {name: "Jane, D"}]);
     useEffect(() => {
         if(status) {
             setUsers([...users, status]);
@@ -15,7 +15,7 @@ function LoginForm({touched, errors, values, isSubmitting, status} ){
     return(
         <>
     <Form>
-        {touched.name && errors.name && (<p>{errors.name}</p>)}
+        {errors.name && (<p>{errors.name}</p>)}
         <p>skkd</p>
         <Field type="text" name="name" placeholder="Full Name"></Field>
         {touched.email && errors.email && (<p>{errors.email}</p>)} {/* //if there is an error, this shows you the errors message. */}
@@ -35,7 +35,7 @@ function LoginForm({touched, errors, values, isSubmitting, status} ){
         <button disabled={isSubmitting}>Submit!</button>
     </Form>
     {users.map(user => (
-        <p>Name: {user.name}</p>
+        <p key="user.id">Name: {user.name}</p>
     ))}
     </>
     )
