@@ -10,7 +10,7 @@ function LoginForm({touched, errors, values, isSubmitting, status} ){
         if(status) {
             setUsers([...users, status]);
         }
-    }, []);
+    }, [status]);
 
     return(
         <>
@@ -35,7 +35,7 @@ function LoginForm({touched, errors, values, isSubmitting, status} ){
         <button disabled={isSubmitting}>Submit!</button>
     </Form>
     {users.map(user => (
-        <p>{JSON.stringify(user)}</p>
+        <p>Name: {user.name}</p>
     ))}
     </>
     )
