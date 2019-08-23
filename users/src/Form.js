@@ -15,27 +15,27 @@ function LoginForm({touched, errors, values, isSubmitting, status} ){
     return(
         <>
     <Form>
-        {errors.name && (<p>{errors.name}</p>)}
-        <p>skkd</p>
+        <p>Log In</p>
+        {errors.name && (<p className="error">{errors.name}</p>)}
         <Field type="text" name="name" placeholder="Full Name"></Field>
-        {touched.email && errors.email && (<p>{errors.email}</p>)} {/* //if there is an error, this shows you the errors message. */}
+        {touched.email && errors.email && (<p className="error">{errors.email}</p>)} {/* //if there is an error, this shows you the errors message. */}
         <Field type="text" name="email" placeholder="Username" />
-    {touched.password && errors.password && (<p>{errors.password}</p>)}
+    {touched.password && errors.password && (<p className="error">{errors.password}</p>)}
         <Field type="password" name="password" placeholder="Password" />
-        <Field component="select" name="food">
+        <Field component="select" name="food" className="select">
             <option>Please choose an option</option>
             <option value="gold">Gold</option>
             <option value="silver">Silver</option>
             <option value="platnum">Platnum</option>
         </Field>
-        {/* <label>
-            <Field type="checkbox" name="tos" checked={values.tos} />
+        <label>
+            <Field  type="checkbox" name="tos" checked={values.tos} />
             Accept TOS
-        </label> */}
+        </label>
         <button disabled={isSubmitting}>Submit!</button>
     </Form>
     {users.map(user => (
-        <p key="user.id">Name: {user.name}</p>
+        <p className="user" key="user.id">Name: {user.name}</p>
     ))}
     </>
     )
